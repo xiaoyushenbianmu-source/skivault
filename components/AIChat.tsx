@@ -5,6 +5,19 @@ import { ICONS } from '../constants';
 import { chatWithCoach, generateCoachVoice } from '../services/geminiService';
 import { Volume2, Loader2, Square, Play, Pause, RotateCcw, Copy, Check, X, FastForward } from 'lucide-react';
 
+import { setApiKey, askGemini } from "../services/geminiService";
+
+function onSaveKey(key: string) {
+  setApiKey(key);
+  localStorage.setItem("GEMINI_API_KEY", key);
+}
+
+// 页面加载时尝试恢复
+useEffect(() => {
+  const saved = localStorage.getItem("GEMINI_API_KEY");
+  if (saved) setApiKey(saved);
+}, []);
+
 interface AIChatProps {
   videos: SkiVideo[];
   isOpen: boolean;
