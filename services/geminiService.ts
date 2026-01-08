@@ -1,9 +1,23 @@
 
-import { GoogleGenAI, Type, Modality } from "@google/genai";
-import { SkiVideo, AIAnalysisResponse } from "../types";
+import { GoogleGenerativeAI } from "@google/genai";
 
-/* Fixed: Use process.env.API_KEY directly as per guidelines. */
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+let client: GoogleGenerativeAI | null = null;
+
+export function setApiKey(key: string) {
+  client = new GoogleGenerativeAI({ apiKey: key });
+}
+
+export async function askGemini(prompt: string) {
+  if (!client) {
+    throw new Error("请先设置 Gemini API Key");
+  }
+
+  // 示例：按你原本的模型调用
+  // const model = client.getGenerativeModel({ model: "gemini-1.5-flash" });
+  // const result = await model.generateContent(prompt);
+  // return result.response.text();
+
+  return "（示例返回）";
 
 export const analyzeVideoPoints = async (video: SkiVideo): Promise<AIAnalysisResponse> => {
   const prompt = `
