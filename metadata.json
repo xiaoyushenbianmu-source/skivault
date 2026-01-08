@@ -1,0 +1,8 @@
+{
+  "name": "SkiVault - Personal Ski Library",
+  "description": "A high-performance personal platform to collect, tag, and analyze ski progression videos from across the web. Features AI-powered summaries and training point extraction.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
