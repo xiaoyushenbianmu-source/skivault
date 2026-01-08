@@ -1,8 +1,6 @@
 
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-
 export default defineConfig({
+  base: '/skivault/',
   plugins: [react()],
   define: {
     // 强制将 process.env.API_KEY 替换为构建环境中的实际值
